@@ -4,14 +4,20 @@
   "description": "A shopping card using the MERN stack plus jwt and redux",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Joan Yassi",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.2",
+    "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.10"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
   }
 }
