@@ -18,4 +18,20 @@ router.get('/', async (req, res) => {
   }
 })
 
+//@route POST api/items
+//@desc Create an item
+//@access Public
+router.post('/', async (req, res) => {
+  const { name } = req.body;
+  const newItem = new Item({
+    name
+  });
+  try {
+    const savedItem = await newItem.save();
+    res.status(200).send(savedItem)
+  } catch (err) {
+    res.send(400).send({ msg: err })
+  }
+})
+
 module.exports = router;

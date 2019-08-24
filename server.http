@@ -1,1 +1,6 @@
-GET http://localhost:5000/api/items
+POST http://localhost:5000/api/items
+content-Type: "application/json"
+
+{
+  "name": "Lexy King"
+}
