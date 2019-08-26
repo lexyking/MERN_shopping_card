@@ -6,7 +6,10 @@ const initialState = {
     { id: uuid(), name: 'Eggs' },
     { id: uuid(), name: 'Milk' },
     { id: uuid(), name: 'Water' },
-    { id: uuid(), name: 'Bread' }
+    { id: uuid(), name: 'Muffins' },
+    { id: uuid(), name: 'Soap' },
+    { id: uuid(), name: 'Soya' }
+
   ]
 }
 
