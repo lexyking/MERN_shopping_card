@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
-import itemReducer from '../reducers/itemReducer';
 
 class ItemModal extends Component {
   state = {
