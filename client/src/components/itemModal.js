@@ -70,7 +70,7 @@ class ItemModal extends Component {
                   id="item"
                   placeholder="Add shopping Item"
                   onChange={this.onChange}
-                  value={this.state.name}
+                // value={this.state.name}
                 >
                 </Input>
                 <Button
