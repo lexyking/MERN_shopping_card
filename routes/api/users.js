@@ -35,14 +35,18 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt)
     newUser.password = hashedPassword
 
-
-    console.log(process.env.jwt_Secret);
-
     //Save the user in the db
     const savedUser = await newUser.save();
 
     //Create the token
-    const token = await jwt.sign({ id: savedUser._id }, process.env.jwt_Secret)
+
+    const token = await jwt.sign({
+      id: savedUser._id,
+      name: savedUser.name,
+      email: savedUser.email
+    },
+      process.env.jwt_Secret
+    )
 
     res.status(200).send({
       user: {
