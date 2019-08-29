@@ -1,19 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const path = require('path');
-
-const items = require('./routes/api/items');
+const bodyParser = require('body-parser')
 
 const app = express();
 dotenv.config();
 
 
 //BodyParser and morgan Middlewares
-app.use(bodyParser.json());
 app.use(morgan('dev'));
+app.use(bodyParser.json());
 
 //Connecting to MongoDB
 mongoose.connect(
@@ -28,7 +26,8 @@ mongoose.connect(
   })
 
 //Routes
-app.use('/api/items', items)
+app.use('/api/items', require('./routes/api/items'))
+app.use('/api/users', require('./routes/api/users'))
 
 //Server static assets id in production
 if (process.env.NODE_ENV === 'production') {
