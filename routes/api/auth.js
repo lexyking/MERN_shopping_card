@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/auth');
 
 
 
@@ -49,6 +50,19 @@ router.post('/', async (req, res) => {
     })
   } catch (err) {
     res.status(400).send(err)
+  }
+})
+
+//@route GET api/auth/user
+//@desc get user data
+//@access Private
+router.get('/user', auth, async (req, res) => {
+  try {
+    const foundUser = await User.findById(req.user.id).select('-password')
+    if (!foundUser) res.status(401).send({ msg: 'User not found' });
+    res.status(200).send(foundUser)
+  } catch (err) {
+    res.status(400).send({ msg: 'Something went wrong' })
   }
 })
 
