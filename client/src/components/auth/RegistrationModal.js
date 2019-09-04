@@ -60,7 +60,7 @@ class RegistrationModal extends Component {
           <ModalHeader
             toggle={this.toggle}
           >
-            Add To Shopping List
+            Add Item To Shopping List
           </ModalHeader>
 
           <ModalBody>
