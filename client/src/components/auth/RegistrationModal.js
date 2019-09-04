@@ -7,7 +7,8 @@ import {
   Form,
   FormGroup,
   Label,
-  Input
+  Input,
+  NavLink
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -21,7 +22,7 @@ class RegisterModal extends Component {
     msg: null
   }
 
-  static PropTypes = {
+  static propTypes = {
     isAuthenticated: PropTypes.bool,
     error: PropTypes.object.isRequired
   }
@@ -39,13 +40,6 @@ class RegisterModal extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
-      name: this.state.name
-    }
-
-    // Add item via addItem action
-    this.props.addItem(newItem);
-
     //Close the modal
     this.toggle();
   }
@@ -53,11 +47,10 @@ class RegisterModal extends Component {
   render() {
     return (
       <section>
-        <Button
-          color="dark"
-          style={{ marginBottom: '2rem' }}
+        <NavLink
+          href="#"
           onClick={this.toggle}
-        >Add Item</Button>
+        >Register</NavLink>
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
@@ -65,27 +58,41 @@ class RegisterModal extends Component {
           <ModalHeader
             toggle={this.toggle}
           >
-            Add Item To Shopping List
+            Register
           </ModalHeader>
 
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="item">Item</Label>
+                <Label for="name">Name</Label>
                 <Input
                   type="text"
                   name="name"
-                  id="item"
-                  placeholder="Add shopping Item"
+                  id="name"
+                  placeholder="Name"
                   onChange={this.onChange}
-                // value={this.state.name}
-                >
-                </Input>
+                />
+                <Label for="email">Email</Label>
+                <Input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  onChange={this.onChange}
+                />
+                <Label for="password">Password</Label>
+                <Input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password"
+                  onChange={this.onChange}
+                />
                 <Button
                   color="dark"
                   style={{ marginTop: "2rem" }}
                   block
-                >Submit</Button>
+                >Register</Button>
               </FormGroup>
             </Form>
           </ModalBody>
@@ -100,4 +107,4 @@ const mapStateToProps = state => ({
   error: state.error
 })
 
-export default connect(mapStateToProps, { addItem })(RegisterModal);
+export default connect(mapStateToProps, {})(RegisterModal);
