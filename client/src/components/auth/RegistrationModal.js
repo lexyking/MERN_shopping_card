@@ -12,13 +12,18 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-class RegistrationModal extends Component {
+class RegisterModal extends Component {
   state = {
     modal: false,
     name: '',
     email: '',
     password: '',
     msg: null
+  }
+
+  static PropTypes = {
+    isAuthenticated: PropTypes.bool,
+    error: PropTypes.object.isRequired
   }
 
   toggle = () => {
@@ -91,7 +96,8 @@ class RegistrationModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  error: state.error
 })
 
 export default connect(mapStateToProps, { addItem })(RegisterModal);
