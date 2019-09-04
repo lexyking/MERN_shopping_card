@@ -50,7 +50,7 @@ class RegisterModal extends Component {
         <NavLink
           href="#"
           onClick={this.toggle}
-        >Register</NavLink>
+        >Registration</NavLink>
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
