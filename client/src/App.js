@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import AppNavbar from './components/header/AppNavBar';
-import ShoppingList from './components/main/ShoppingList';
-import ItemModal from './components/itemModal';
+import {
+  AppNavbar,
+  ShoppingList,
+  ItemModal
+} from './components/index';
+
 import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
