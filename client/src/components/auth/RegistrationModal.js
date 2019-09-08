@@ -12,6 +12,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { register } from '../../actions/authActions';
 
 class RegisterModal extends Component {
   state = {
@@ -24,7 +25,8 @@ class RegisterModal extends Component {
 
   static propTypes = {
     isAuthenticated: PropTypes.bool,
-    error: PropTypes.object.isRequired
+    error: PropTypes.object.isRequired,
+    register: PropTypes.func.isRequired
   }
 
   toggle = () => {
@@ -110,4 +112,7 @@ const mapStateToProps = state => ({
   error: state.error
 })
 
-export default connect(mapStateToProps, {})(RegisterModal);
+export default connect(
+  mapStateToProps,
+  { register }
+)(RegisterModal);
