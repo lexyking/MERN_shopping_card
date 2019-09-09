@@ -9,8 +9,10 @@ import {
   NavLink,
   Container
 } from 'reactstrap';
+import { connect } from 'react-redux';
 import RegisterModal from '../auth/RegistrationModal';
-import Logout from '../auth/Logout'
+import Logout from '../auth/Logout';
+import LoginModal from '../auth/Login'
 class AppNavbar extends Component {
   state = {
     isOpen: false
@@ -37,6 +39,9 @@ class AppNavbar extends Component {
                     Github
                   </NavLink> */}
                   <RegisterModal />
+                </NavItem>
+                <NavItem>
+                  <LoginModal />
                 </NavItem>
                 <NavItem>
                   <Logout />
